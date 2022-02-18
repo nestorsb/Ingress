@@ -37,6 +37,12 @@ class UserProfileController extends AbstractController
             "agent"=> $agent
         ]);
 
+        //Cambio de nombre
+        if(isset($_POST["change"]) && isset($_POST["newname"])){
+            echo $agentRepository->uploadName($_POST["newname"] ,$agent);
+            $_SESSION["agentname"] = $_POST["newname"];
+        };
+
         //Log out
         if(isset($_POST["logout"])){
             unset($_SESSION["login"]);

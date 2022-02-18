@@ -88,6 +88,16 @@ class AgentRepository extends EntityRepository
         }
     }
 
+    public function uploadName($newName, $agent)
+    {
+        $agent->setAgent_name($newName);
+        $this->getEntityManager()->persist($agent);
+        $this->getEntityManager()->flush();
+
+        return $agent->getAgent_name();
+
+    }
+
     /**
      * Funcion que recibe las estadisticas en formato de texto desde el HTML, las divide en cabeceras y datos y los mete una matriz con dos dimensiones,
      * la 0 con cabeceras, la 1 con datos

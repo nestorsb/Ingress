@@ -63,3 +63,26 @@ Link a proyecto: https://github.com/nestorsb/AC5-Doctrine
 
 Cuando ha habido ausencia de requisitos o explicaciones especificas sobre el desarrollo de alguna parte de la aplicación, esta se ha realizado de la forma más lógica posible bajo el punto de vista del desarrollador
 atendiendo siempre al motivo y objetivo de la presente aplicación.
+
+
+
+
+Ejemplo Reflexiva
+
+/**
+* @ORM\ManyToOne(targetEntity="Emp")
+* @ORM\JoinColum(name="JEFE", referencedColumnName="EMP_NO")
+*/
+private $jefe
+
+/**
+* @ORM\OneToMany(targetEntity="Emp", mappedBy="jefe")
+*/
+private $empleados
+
+public funcion __construct(){
+    $this->empleados = new ArrayCollection;
+}
+
+
+
